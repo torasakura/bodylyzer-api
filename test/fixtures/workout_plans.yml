@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_day: 2015-06-13
+  end_day: 2015-06-13
+  name: MyString
+  trainingsdays: 1
+  public: false
+
+two:
+  start_day: 2015-06-13
+  end_day: 2015-06-13
+  name: MyString
+  trainingsdays: 1
+  public: false
