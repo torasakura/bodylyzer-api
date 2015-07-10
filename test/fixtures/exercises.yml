@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyText
-  video_url: MyString
-  unit: MyString
+push_up:
+  name: PushUp
+  description: do a full pushup
+  video_url: youtube.com
+  unit: Bodyweight
 
-two:
-  name: MyString
-  description: MyText
-  video_url: MyString
-  unit: MyString
+pull_up:
+  name: PullUp
+  description: do a deadhang pull up
+  video_url: youtube.com
+  unit: Bodyweight

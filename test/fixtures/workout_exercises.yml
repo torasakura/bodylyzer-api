@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  workout_id: 
-  exercise_id: 
-  sets: 1
-  reps: 1
-  weight: 9.99
-  feeling: 1
+push_ups:
+  workout: one
+  exercise: push_up 
+  sets: 3
+  reps: 10
+  weight: 0.00
+  feeling: 10
 
-two:
-  workout_id: 
-  exercise_id: 
-  sets: 1
-  reps: 1
-  weight: 9.99
-  feeling: 1
+pull_ups:
+  workout: one
+  exercise: pull_up
+  sets: 3
+  reps: 5
+  weight: 0.00
+  feeling: 3

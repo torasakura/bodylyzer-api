@@ -52,10 +52,11 @@ ActiveRecord::Schema.define(version: 20150613164506) do
     t.date     "start_day"
     t.date     "end_day"
     t.string   "name"
-    t.integer  "trainingsdays"
+    t.integer  "number_of_trainingsdays"
+    t.string   "goal"
     t.boolean  "public"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "workouts", force: :cascade do |t|

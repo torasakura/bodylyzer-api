@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  weekday: MyString
-  workout_plan_id: 
+monday:
+  weekday: Monday
+  workout_plan: 
 
-two:
-  weekday: MyString
-  workout_plan_id: 
+thursday:
+  weekday: Thursday
+  workout_plan: 

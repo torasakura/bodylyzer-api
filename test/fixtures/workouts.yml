@@ -2,8 +2,8 @@
 
 one:
   day: 2015-06-13
-  trainingsday_id: 
+  trainingsday: monday
 
 two:
-  day: 2015-06-13
-  trainingsday_id: 
+  day: 2015-06-16
+  trainingsday: thursday

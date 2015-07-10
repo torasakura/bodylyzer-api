@@ -4,8 +4,9 @@ class CreateWorkoutPlans < ActiveRecord::Migration
       t.date :start_day
       t.date :end_day
       t.string :name
-      t.integer :trainingsdays
-      t.boolean :public
+      t.integer :number_of_trainingsdays
+      t.string :goal
+      t.boolean :public, default: true
 
       t.timestamps null: false
     end
