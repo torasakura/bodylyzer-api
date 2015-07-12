@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20150613164506) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "exercises_trainingsdays", id: false, force: :cascade do |t|
+    t.integer  "exercise_id"
+    t.integer  "trainingsday_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "exercises_trainingsdays", ["exercise_id"], name: "index_exercises_trainingsdays_on_exercise_id", using: :btree
+  add_index "exercises_trainingsdays", ["trainingsday_id"], name: "index_exercises_trainingsdays_on_trainingsday_id", using: :btree
+
   create_table "trainingsdays", force: :cascade do |t|
     t.string   "weekday"
     t.integer  "workout_plan_id"
@@ -54,9 +64,9 @@ ActiveRecord::Schema.define(version: 20150613164506) do
     t.string   "name"
     t.integer  "number_of_trainingsdays"
     t.string   "goal"
-    t.boolean  "public"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.boolean  "public",                  default: true
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "workouts", force: :cascade do |t|

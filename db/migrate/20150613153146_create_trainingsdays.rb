@@ -6,5 +6,11 @@ class CreateTrainingsdays < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    create_table :exercises_trainingsdays, id: false do |t|
+      t.references :exercise, index: true
+      t.references :trainingsday, index: true
+      t.timestamps null: false
+    end
   end
 end
