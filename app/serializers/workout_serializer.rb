@@ -1,3 +1,3 @@
 class WorkoutSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :day, :trainingsday
 end

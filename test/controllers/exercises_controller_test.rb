@@ -17,7 +17,7 @@ class ExercisesControllerTest < ActionController::TestCase
   
   describe "GET #index" do
     it "should responds with a json of exercises" do
-      get :index, :format => :json
+      get :index, format: :json
       response.success?.must_equal true
       body = JSON.parse(response.body)
       body['exercises'].any?{|x| x["name"] == @exercise.name}.must_equal true
@@ -26,18 +26,18 @@ class ExercisesControllerTest < ActionController::TestCase
   
   describe "GET #show" do
     it "should be successful" do
-      get :show, id: @exercise.id, :format => :json
+      get :show, id: @exercise.id, format: :json
       response.success?.must_equal true
     end
 
     it "should return the correct exercise when correct id is passed" do
-      get :show, id: @exercise.id, :format => :json
+      get :show, id: @exercise.id, format: :json
       body = JSON.parse(response.body)
       body['exercise']["id"].must_equal @exercise.id
     end
 
     it "should return 404 if exercise does not exist" do
-      get :show, id: 404, :format => :json
+      get :show, id: 404, format: :json
       response.not_found?.must_equal true
     end
     
