@@ -39,7 +39,9 @@ class WorkoutPlanTest < ActiveSupport::TestCase
   end
 
   it "is invalid without public" do
-    plan_params.delete :public
+    puts challenge.inspect
+    challenge.public = nil
+    puts challenge.inspect
     challenge.wont_be :valid?
     challenge.errors[:public].must_be :present?
   end
