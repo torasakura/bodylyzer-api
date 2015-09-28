@@ -2,7 +2,8 @@ class WorkoutsController < ApplicationController
   before_action :load_workout, only: [:show, :update, :destroy]
 
   def index
-    render json: Workout.all
+    @workouts = Workout.all
+    render json: @workouts
   end
 
   def show
@@ -10,11 +11,11 @@ class WorkoutsController < ApplicationController
   end
 
   def create
-    workout = Workout.new(workout_params)
-    if workout.save
-      render json: workout, status: :created
+    @workout = Workout.new(workout_params)
+    if @workout.save
+      render json: @workout, status: :created
     else
-      render json: workout.errors, status: :unprocessable_entity
+      render json: @workout.errors, status: :unprocessable_entity
     end
   end
 
@@ -28,7 +29,7 @@ class WorkoutsController < ApplicationController
 
   def destroy
     if @workout.destroy
-      render json: {}, status: :ok
+      head :no_content
     else
       render json: @workout.errors, status: :unprocessable_entity
     end
