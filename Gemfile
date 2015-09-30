@@ -12,6 +12,16 @@ gem 'pg'
 
 group :test do
   gem 'minitest-spec-rails'
+  gem 'shoulda-matchers', require: false
+end
+
+group :development do
+  gem 'spring'
+  gem 'spring-commands-rspec'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
 end
 
 # To use ActiveModel has_secure_password

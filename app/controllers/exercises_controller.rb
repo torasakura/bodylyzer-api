@@ -3,7 +3,8 @@ class ExercisesController < ApplicationController
   before_action :load_exercise, only: [:show, :update, :destroy]
 
   def index
-    render json: Exercise.all
+    @exercises = Exercise.all
+    render json: @exercises
   end
 
   def show
@@ -11,11 +12,11 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    exercise = Exercise.new(exercise_params)
-    if exercise.save
-      render json: exercise, status: :created
+    @exercise = Exercise.new(exercise_params)
+    if @exercise.save
+      render json: @exercise, status: :created
     else
-      render json: exercise.errors, status: :unprocessable_entity
+      render json: @exercise.errors, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +30,7 @@ class ExercisesController < ApplicationController
 
   def destroy
     if @exercise.destroy
-      render json: {}, status: :ok
+      head :no_content
     else
       render json: @exercise.errors, status: :unprocessable_entity
     end

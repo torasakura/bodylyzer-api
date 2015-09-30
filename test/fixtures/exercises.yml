@@ -1,15 +1,15 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-push_up:
-  id: 1
-  name: PushUp
-  description: do a full pushup
-  video_url: youtube.com
-  unit: Bodyweight
+# push_up:
+#   id: 1
+#   name: PushUp
+#   description: do a full pushup
+#   video_url: youtube.com
+#   unit: Bodyweight
 
-pull_up:
-  id: 2
-  name: PullUp
-  description: do a deadhang pull up
-  video_url: youtube.com
-  unit: Bodyweight
+# pull_up:
+#   id: 2
+#   name: PullUp
+#   description: do a deadhang pull up
+#   video_url: youtube.com
+#   unit: Bodyweight
