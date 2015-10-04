@@ -13,6 +13,11 @@ RSpec.describe WorkoutExercise, type: :model do
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
   end
 
+  describe "associations" do
+    it { is_expected.to belong_to(:workout) }
+    it { is_expected.to belong_to(:exercise) }
+  end
+
   describe "validations" do
     it { is_expected.to validate_presence_of(:workout_id) }
     it { is_expected.to validate_presence_of(:exercise_id) }

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::API
+  include WardenHelper
   include ActionController::Serialization
   
   rescue_from ActiveRecord::RecordNotFound,       with: :not_found
