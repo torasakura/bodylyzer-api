@@ -1,27 +1,3 @@
-# require 'test_helper'
-
-# class WorkoutTest < ActiveSupport::TestCase
-#   let(:workout_params) { { day: Date.today, trainingsday_id: 1 } }
-#   let(:workout) { Workout.new workout_params }
-
-#   it "is valid with valid params" do
-#     workout.must_be :valid?
-#   end
-
-#   it "is invalid without a day" do
-#     workout_params.delete :day
-#     workout.wont_be :valid?
-#     workout.errors[:day].must_be :present?
-#   end
-
-#   # TODO: better test if association is available
-#   it "is invalid without a trainingsday_id" do
-#     workout_params.delete :trainingsday_id
-#     workout.wont_be :valid?
-#     workout.errors[:trainingsday_id].must_be :present?
-#   end
-
-# end
 require 'rails_helper'
 
 RSpec.describe Workout, type: :model do
@@ -29,6 +5,11 @@ RSpec.describe Workout, type: :model do
   describe "db structure" do
     it { is_expected.to have_db_column(:day).of_type(:date) }
     it { is_expected.to have_db_column(:trainingsday_id).of_type(:integer) }
+  end
+
+  describe "associations" do
+    it { is_expected.to belong_to(:trainingsday) }
+    it { is_expected.to have_many(:workout_exercises) }
   end
 
   describe "validations" do

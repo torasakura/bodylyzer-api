@@ -16,6 +16,10 @@ RSpec.describe WorkoutPlan, type: :model do
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
   end
 
+  describe "associations" do
+    it { is_expected.to have_many(:trainingsdays) }
+  end
+
   describe "validations" do
     it { is_expected.to validate_presence_of(:start_day) }
     it { is_expected.to validate_presence_of(:end_day) }

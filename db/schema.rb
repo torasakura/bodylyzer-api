@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613164506) do
+ActiveRecord::Schema.define(version: 20151004191415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authentication_tokens", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "user_id"
+    t.datetime "last_used_at"
+    t.string   "ip_address"
+    t.string   "user_agent"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "authentication_tokens", ["user_id"], name: "index_authentication_tokens_on_user_id", using: :btree
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
@@ -43,6 +55,15 @@ ActiveRecord::Schema.define(version: 20150613164506) do
   end
 
   add_index "trainingsdays", ["workout_plan_id"], name: "index_trainingsdays_on_workout_plan_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
 
   create_table "workout_exercises", force: :cascade do |t|
     t.integer  "workout_id"
@@ -78,6 +99,7 @@ ActiveRecord::Schema.define(version: 20150613164506) do
 
   add_index "workouts", ["trainingsday_id"], name: "index_workouts_on_trainingsday_id", using: :btree
 
+  add_foreign_key "authentication_tokens", "users"
   add_foreign_key "trainingsdays", "workout_plans"
   add_foreign_key "workout_exercises", "exercises"
   add_foreign_key "workout_exercises", "workouts"

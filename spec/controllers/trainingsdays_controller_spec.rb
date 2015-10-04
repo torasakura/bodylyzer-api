@@ -2,7 +2,16 @@ require 'rails_helper'
 
 RSpec.describe TrainingsdaysController, type: :controller do
 
+  before do
+    user = User.create(email: "user@example.com", password: "password")
+    authentication_token = AuthenticationToken.create(user_id: user.id,
+      body: "token", last_used_at: DateTime.current)
+    request.env["HTTP_X_USER_EMAIL"] = user.email
+    request.env["HTTP_X_AUTH_TOKEN"] = authentication_token.body
+  end
+
   it_behaves_like "api_controller"
+  it_behaves_like "authenticated_api_controller"
 
   let!(:workout_plan) {WorkoutPlan.create(start_day: Date.today, end_day: Date.today + 1.week, name: "new plan", number_of_trainingsdays: 2, goal: "max volume", public: true)}
 
