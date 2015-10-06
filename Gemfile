@@ -25,7 +25,9 @@ group :development, :test do
 end
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'has_secure_token'
+gem 'warden'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

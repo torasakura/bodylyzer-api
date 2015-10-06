@@ -6,6 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+CORS_ALLOW_ORIGIN  = "*"
+CORS_ALLOW_METHODS = %w{GET POST PUT PATCH OPTIONS DELETE}.join(',')
+CORS_ALLOW_HEADERS = %w{Content-Type Accept X-User-Email X-Auth-Token}.join(',')
+
 module BodylyzerApi
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -19,8 +23,15 @@ module BodylyzerApi
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.autoload_paths += %W(#{config.root}/app/services/**/)
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.action_dispatch.default_headers = {
+      "Access-Control-Allow-Origin"  => CORS_ALLOW_ORIGIN,
+      "Access-Control-Allow-Methods" => CORS_ALLOW_METHODS,
+      "Access-Control-Allow-Headers" => CORS_ALLOW_HEADERS
+    }
   end
 end

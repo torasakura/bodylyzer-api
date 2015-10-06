@@ -4,6 +4,25 @@ Rails.application.routes.draw do
   resources :trainingsdays, except: [:new, :edit]
   resources :workout_plans, except: [:new, :edit]
   resources :exercises, except: [:new, :edit]
+  resource  :sessions,  only: [:create, :destroy]
+
+
+
+  # keep that at the bottom
+  match "/*path",
+    to: proc {
+      [
+        204,
+        {
+          "Content-Type"                 => "text/plain",
+          "Access-Control-Allow-Origin"  => CORS_ALLOW_ORIGIN,
+          "Access-Control-Allow-Methods" => CORS_ALLOW_METHODS,
+          "Access-Control-Allow-Headers" => CORS_ALLOW_HEADERS
+        },
+        []
+      ]
+    }, via: [:options, :head]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
